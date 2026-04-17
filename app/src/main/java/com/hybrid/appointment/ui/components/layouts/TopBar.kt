@@ -30,7 +30,7 @@ fun TopBar(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Image(
-            painter = painterResource(id = R.drawable.firefly_digital),
+            painter = painterResource(id = R.drawable.appointment_isologo),
             contentDescription = "Logo",
             modifier = Modifier.size(100.dp)
         )
