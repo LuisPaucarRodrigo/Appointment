@@ -7,7 +7,6 @@ import com.hybrid.appointment.domain.appointment.GetAddressFromLocationUseCase
 import com.hybrid.appointment.domain.appointment.usecase.InsertAppointmentUseCase
 import com.hybrid.appointment.domain.appointment.validate.ValidateRequiredUseCase
 import com.hybrid.appointment.domain.appointment.validate.ValidateTitleUseCase
-import com.hybrid.appointment.ui.screen.appointment.detail.AppointmentDetailUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,6 +29,7 @@ class AppointmentFormVM @Inject constructor(
 
     private val _events: MutableSharedFlow<Unit> = MutableSharedFlow()
     val events: SharedFlow<Unit> get() = _events.asSharedFlow()
+
 
     fun canSave(): Boolean{
         val appointment = state.value.appointmentError
@@ -104,7 +104,4 @@ class AppointmentFormVM @Inject constructor(
         }
     }
 
-    fun clearAllState() {
-        _state.value = AppointmentFormUiState()
-    }
 }

@@ -79,6 +79,7 @@ dependencies {
 
     implementation(libs.navigation.runtime)
     implementation(libs.navigation.ui)
+    implementation(libs.navigation.viewmodel)
 
     implementation(libs.android.maps)
     implementation(libs.android.gms.location)

@@ -15,14 +15,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.google.android.gms.maps.model.LatLng
 import com.hybrid.appointment.ui.components.layouts.GoogleMapAppointment
 
 @Composable
 fun AppointmentMapFormScreen(
     backToForm:() -> Unit,
-    appointmentFormVM: AppointmentFormVM = hiltViewModel<AppointmentFormVM>()
+    appointmentFormVM: AppointmentFormVM
 ) {
     var selectedLocation by remember { mutableStateOf<LatLng?>(null) }
 

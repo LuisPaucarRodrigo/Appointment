@@ -23,7 +23,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -35,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.hybrid.appointment.ui.components.layouts.DatePickerModal
 import com.hybrid.appointment.ui.components.layouts.TimePickerModal
 import com.hybrid.appointment.ui.components.layouts.TopBar
@@ -44,21 +42,16 @@ import com.hybrid.appointment.ui.components.layouts.TopBar
 fun AppointmentFormScreen(
     backToAppointmentListScreen:() ->Unit,
     goToAppointmentMapFormScreen:()->Unit,
-    appointmentFormVM: AppointmentFormVM = hiltViewModel<AppointmentFormVM>())
+    appointmentFormVM: AppointmentFormVM
+)
 {
     val state by appointmentFormVM.state.collectAsState()
     val canSave = appointmentFormVM.canSave()
     var openDateDialog by remember { mutableStateOf(false) }
     var openTimeDialog by remember { mutableStateOf(false) }
 
-    BackHandler{
-        appointmentFormVM.clearAllState()
-        backToAppointmentListScreen()
-    }
-
     LaunchedEffect(Unit) {
         appointmentFormVM.events.collect { event ->
-            appointmentFormVM.clearAllState()
             backToAppointmentListScreen()
         }
     }
