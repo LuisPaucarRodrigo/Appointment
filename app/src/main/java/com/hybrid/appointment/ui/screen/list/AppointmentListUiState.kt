@@ -10,4 +10,4 @@ data class AppointmentListUiState(
 sealed class AppointmentListEvent {
     data class Error(val errorMessage:String): AppointmentListEvent()
     data class Success(val successMessage:String): AppointmentListEvent()
-}S
+}
