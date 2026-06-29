@@ -1,5 +1,6 @@
 package com.hybrid.appointment.data.local.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -10,8 +11,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AppointmentDao {
 
-    @Query("SELECT * FROM appointment_table  ORDER BY dateTime DESC")
-    fun getAllAppointments(): Flow<List<AppointmentEntity>>
+    @Query("SELECT * FROM appointment_table WHERE state!='VISITADO' ORDER BY dateTime DESC")
+    fun getAppointmentsNotVisited(): Flow<List<AppointmentEntity>>
+
+    @Query("SELECT * FROM appointment_table WHERE state='VISITADO' ORDER BY dateTime DESC" )
+    fun getAppointmentsHistory(): PagingSource<Int,AppointmentEntity>
 
     @Insert
     suspend fun insertAppointment(appointmentEntity: AppointmentEntity)

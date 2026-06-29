@@ -3,12 +3,13 @@ package com.hybrid.appointment.domain.extensions
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 fun Long.toDate(): String {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
     val instant = Instant.ofEpochMilli(this)
-    val date = instant.atZone(ZoneId.systemDefault()).toLocalDate().format(formatter)
+    val date = instant.atZone(ZoneOffset.UTC).toLocalDate().format(formatter)
     return date
 }
 

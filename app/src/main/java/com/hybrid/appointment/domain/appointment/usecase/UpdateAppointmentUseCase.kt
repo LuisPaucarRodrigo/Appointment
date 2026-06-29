@@ -1,8 +1,8 @@
 package com.hybrid.appointment.domain.appointment.usecase
 
 import com.hybrid.appointment.domain.Result
-import com.hybrid.appointment.domain.appointment.Appointment
-import com.hybrid.appointment.domain.appointment.AppointmentRepositories
+import com.hybrid.appointment.domain.appointment.entities.Appointment
+import com.hybrid.appointment.domain.appointment.repositories.AppointmentRepositories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

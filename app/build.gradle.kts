@@ -76,6 +76,7 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
+    implementation(libs.room.paging)
 
     implementation(libs.navigation.runtime)
     implementation(libs.navigation.ui)
@@ -86,6 +87,9 @@ dependencies {
 
     implementation(libs.android.retrofit)
     implementation(libs.android.retrofit.converter)
+
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -7,8 +7,9 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.hybrid.appointment.ui.screen.appointment.detail.AppointmentDetailScreen
-import com.hybrid.appointment.ui.screen.appointment.list.AppointmentListScreen
+import com.hybrid.appointment.ui.screen.detail.AppointmentDetailScreen
+import com.hybrid.appointment.ui.screen.history.AppointmentHistoryScreen
+import com.hybrid.appointment.ui.screen.list.AppointmentListScreen
 
 @Composable
 fun Navigation(modifier: Modifier) {
@@ -25,7 +26,8 @@ fun Navigation(modifier: Modifier) {
             entry<Routes.AppointmentListScreen>{
                 AppointmentListScreen(
                     gotoAppointmentForm = { backStack.add(Routes.Form) },
-                    gotoAppointmentDetail = { backStack.add(Routes.AppointmentDetailScreen(it)) }
+                    gotoAppointmentDetail = { backStack.add(Routes.AppointmentDetailScreen(it)) },
+                    gotoAppointmentHistory = { backStack.add(Routes.AppointmentHistory) }
                 )
             }
             entry<Routes.Form> {
@@ -34,7 +36,7 @@ fun Navigation(modifier: Modifier) {
                 )
             }
             entry<Routes.AppointmentDetailScreen> { AppointmentDetailScreen(appointmentId = it.appointmentId) }
-
+            entry<Routes.AppointmentHistory> { AppointmentHistoryScreen() }
         },
         modifier = modifier
     )

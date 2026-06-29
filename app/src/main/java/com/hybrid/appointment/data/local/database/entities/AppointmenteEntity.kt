@@ -2,9 +2,11 @@ package com.hybrid.appointment.data.local.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.hybrid.appointment.domain.appointment.Appointment
-import com.hybrid.appointment.domain.appointment.AppointmentState
+import com.hybrid.appointment.domain.appointment.entities.Appointment
+import com.hybrid.appointment.domain.appointment.entities.AppointmentState
+import com.hybrid.appointment.domain.extensions.toDate
 import com.hybrid.appointment.domain.extensions.toDateTime
+import com.hybrid.appointment.domain.extensions.toTime
 
 @Entity(tableName = "appointment_table")
 data class AppointmentEntity(
@@ -18,11 +20,24 @@ data class AppointmentEntity(
     val state: AppointmentState
 )
 
-fun Appointment.toAppointmentEntity():AppointmentEntity{
+fun Appointment.toEntity():AppointmentEntity{
     return AppointmentEntity(
         id = id,
         title = title,
         dateTime = date.toDateTime(time),
+        lat = lat,
+        lon = lon,
+        address = address,
+        state = state
+    )
+}
+
+fun AppointmentEntity.toDomain(): Appointment{
+    return Appointment(
+        id = id,
+        title = title,
+        date = dateTime.toDate(),
+        time = dateTime.toTime(),
         lat = lat,
         lon = lon,
         address = address,

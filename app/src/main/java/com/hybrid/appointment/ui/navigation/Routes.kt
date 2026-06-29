@@ -11,4 +11,5 @@ sealed class Routes: NavKey{
         @Serializable data object AppointmentFormScreen:Routes()
         @Serializable data object AppointmentMapFormScreen:Routes()
     }
+    @Serializable data object AppointmentHistory:Routes()
 }

@@ -6,8 +6,8 @@ class ValidateRequiredUseCase @Inject constructor() {
     fun normalize(text:String):String = text.trim()
     operator fun invoke(text:String): Boolean{
         val normalized = normalize(text)
-        if (normalized.isEmpty()) return false
-        if ("  " in normalized) return false
-        return true
+        if (normalized.isEmpty()) return true
+        if ("  " in normalized) return true
+        return false
     }
 }
