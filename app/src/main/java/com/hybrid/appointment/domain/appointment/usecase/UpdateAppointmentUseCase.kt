@@ -1,6 +1,6 @@
 package com.hybrid.appointment.domain.appointment.usecase
 
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.entities.Appointment
 import com.hybrid.appointment.domain.appointment.repositories.AppointmentRepositories
 import kotlinx.coroutines.Dispatchers

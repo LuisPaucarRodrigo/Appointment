@@ -1,4 +1,4 @@
-package com.hybrid.appointment.data.system
+package com.hybrid.appointment.data.system.location
 
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.LocationRequest

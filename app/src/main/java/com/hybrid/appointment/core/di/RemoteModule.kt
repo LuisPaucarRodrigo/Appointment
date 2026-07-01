@@ -1,8 +1,8 @@
 package com.hybrid.appointment.core.di
 
+import com.hybrid.appointment.BuildConfig
 import com.hybrid.appointment.core.remote.interceptor.AuthInterceptor
 import com.hybrid.appointment.core.remote.interceptor.ConfigInterceptor
-import com.hybrid.appointment.data.remoto.services.GoogleRoutesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
-    private const val BASE_URL = "https://routes.googleapis.com/"
+    private const val BASE_URL = BuildConfig.MAPS_API_KEY
 
     @Provides
     @Singleton
@@ -36,9 +36,4 @@ object RemoteModule {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideApiService(retrofit: Retrofit): GoogleRoutesApi {
-        return retrofit.create(GoogleRoutesApi::class.java)
-    }
 }

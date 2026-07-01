@@ -7,7 +7,6 @@ import com.hybrid.appointment.data.local.database.dao.AppointmentDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -17,13 +16,13 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun providerRoom(@ApplicationContext context: Context): AppointmentDatabase{
+    fun providerRoom(context: Context): AppointmentDatabase{
         return Room.databaseBuilder(context, AppointmentDatabase::class.java,"Appointment").build()
     }
 
     @Singleton
     @Provides
-    fun providerAppointmenteDao(db: AppointmentDatabase): AppointmentDao{
+    fun providerAppointmentDao(db: AppointmentDatabase): AppointmentDao{
         return db.getAppointmentDao()
     }
 }

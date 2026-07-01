@@ -1,7 +1,7 @@
 package com.hybrid.appointment.domain.appointment.repositories
 
 import androidx.paging.PagingData
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.entities.Appointment
 import kotlinx.coroutines.flow.Flow
 

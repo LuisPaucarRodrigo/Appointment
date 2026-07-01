@@ -11,7 +11,7 @@ import androidx.compose.material3.TimePickerState
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
-import com.hybrid.appointment.domain.extensions.toDate
+import com.hybrid.appointment.core.utils.toDate
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)

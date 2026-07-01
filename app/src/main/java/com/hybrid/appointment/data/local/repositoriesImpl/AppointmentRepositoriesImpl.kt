@@ -9,7 +9,7 @@ import com.hybrid.appointment.data.local.database.entities.toDomain
 import com.hybrid.appointment.data.local.database.entities.toEntity
 import com.hybrid.appointment.domain.appointment.entities.Appointment
 import com.hybrid.appointment.domain.appointment.repositories.AppointmentRepositories
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

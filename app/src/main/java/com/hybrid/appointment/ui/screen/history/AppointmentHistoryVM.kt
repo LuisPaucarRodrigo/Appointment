@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.usecase.GetAppointmentHistoryUseCase
 import com.hybrid.appointment.ui.screen.detail.AppointmentUi
 import com.hybrid.appointment.ui.screen.detail.toUi

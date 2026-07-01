@@ -1,4 +1,4 @@
-package com.hybrid.appointment.domain.extensions
+package com.hybrid.appointment.core.utils
 
 import java.time.Instant
 import java.time.LocalDateTime
@@ -31,3 +31,17 @@ fun String.toDateTime(time: String): Long {
         .toInstant()
         .toEpochMilli()
 }
+
+fun String.toTriggerAlarm(time: String): Long {
+
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+
+    val localDateTime = LocalDateTime.parse("$this $time", formatter)
+
+    return localDateTime
+        .minusHours(1)
+        .atZone(ZoneId.systemDefault())
+        .toInstant()
+        .toEpochMilli()
+}
+

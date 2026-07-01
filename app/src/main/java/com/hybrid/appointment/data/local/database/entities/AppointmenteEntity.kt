@@ -4,9 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.hybrid.appointment.domain.appointment.entities.Appointment
 import com.hybrid.appointment.domain.appointment.entities.AppointmentState
-import com.hybrid.appointment.domain.extensions.toDate
-import com.hybrid.appointment.domain.extensions.toDateTime
-import com.hybrid.appointment.domain.extensions.toTime
+import com.hybrid.appointment.core.utils.toDate
+import com.hybrid.appointment.core.utils.toDateTime
+import com.hybrid.appointment.core.utils.toTime
 
 @Entity(tableName = "appointment_table")
 data class AppointmentEntity(

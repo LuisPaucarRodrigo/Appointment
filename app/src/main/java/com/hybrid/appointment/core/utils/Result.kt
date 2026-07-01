@@ -1,4 +1,4 @@
-package com.hybrid.appointment.domain
+package com.hybrid.appointment.core.utils
 
 sealed class Result<out T> {
     data class Success<out T>(val data: T) : Result<T>()

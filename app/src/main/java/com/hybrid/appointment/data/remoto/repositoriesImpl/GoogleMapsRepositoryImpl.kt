@@ -7,7 +7,7 @@ import com.hybrid.appointment.data.remoto.entities.LocationWrapper
 import com.hybrid.appointment.data.remoto.entities.RouteRequest
 import com.hybrid.appointment.data.remoto.services.GoogleRoutesApi
 import com.hybrid.appointment.data.remoto.utils.decodeAllRoutes
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.repositories.GoogleMapsRepositories
 import javax.inject.Inject
 

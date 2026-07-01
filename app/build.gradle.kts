@@ -21,13 +21,13 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        val properties = Properties()
+        val properties: Properties = Properties()
         val localPropertiesFile = rootProject.file("local.properties")
 
         if (localPropertiesFile.exists()) {
-            properties.load(FileInputStream(localPropertiesFile))
+            properties.load(localPropertiesFile.inputStream())
         }
-
+        localPropertiesFile
         val mapsApiKey = properties.getProperty("MAPS_API_KEY") ?: ""
         manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
         buildConfigField("String", "MAPS_API_KEY", "\"$mapsApiKey\"")
@@ -38,6 +38,9 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            isShrinkResources = true
+            isDebuggable = false
+            buildConfigField("String","BASE_URL","\"https://routes.googleapis.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

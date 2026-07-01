@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.maps.model.LatLng
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.entities.AppointmentState
 import com.hybrid.appointment.domain.appointment.usecase.GetAppointmentByIdUseCase
 import com.hybrid.appointment.domain.appointment.usecase.GetRouteUseCase

@@ -2,7 +2,7 @@ package com.hybrid.appointment.ui.screen.form
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.usecase.GetAddressFromLocationUseCase
 import com.hybrid.appointment.domain.appointment.usecase.InsertAppointmentUseCase
 import com.hybrid.appointment.domain.appointment.validate.ValidateRequiredUseCase

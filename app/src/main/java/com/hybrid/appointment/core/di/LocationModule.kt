@@ -19,21 +19,19 @@ object LocationModule {
 
     @Provides
     @Singleton
-    fun provideFusedLocationClient(
-        @ApplicationContext context: Context
-    ): FusedLocationProviderClient {
+    fun provideFusedLocationClient(context: Context): FusedLocationProviderClient {
         return LocationServices.getFusedLocationProviderClient(context)
     }
 
     @Provides
     @Singleton
-    fun providerGeocoder(@ApplicationContext context: Context): Geocoder {
+    fun providerGeocoder(context: Context): Geocoder {
         return Geocoder(context, Locale.getDefault())
     }
 
     @Provides
     @Singleton
-    fun provideSettingsClient(@ApplicationContext context: Context): SettingsClient{
+    fun provideSettingsClient(context: Context): SettingsClient{
         return LocationServices.getSettingsClient(context)
     }
 }

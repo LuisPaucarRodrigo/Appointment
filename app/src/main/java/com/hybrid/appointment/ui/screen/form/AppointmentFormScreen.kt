@@ -98,8 +98,8 @@ fun ContentForm(
     ) {
 
         AppTextField(
-            title = "Title(mín. 3 characters)",
-            placeholder = "Ingresa Titulo",
+            title = "Nombre Cita(mín. 3 characters)",
+            placeholder = "Ingresa Nombre Cita",
             value = appointmentForm.title,
             isError = appointmentFormError.titleError == true,
             enabled = !isLoading,
@@ -141,94 +141,6 @@ fun ContentForm(
             onValueChange = {},
             trailingIcon = { Icon(Icons.Default.Map, contentDescription = null,tint = Color.Black)   }
         )
-
-//        Row(
-//            modifier = Modifier.fillMaxWidth(),
-//            verticalAlignment = Alignment.CenterVertically) {
-//
-//            Box(
-//                modifier = Modifier
-//                    .weight(1f)
-//                    .clickable(onClick = { openDateDialogChange(true) })
-//            ) {
-//                OutlinedTextField(
-//                    value = appointmentForm.date,
-//                    onValueChange = {},
-//                    label = { Text("Date") },
-//                    readOnly = true,
-//                    modifier = Modifier.fillMaxWidth(),
-//                    isError = appointmentFormError.dateError == false && !canSave && !isLoading,
-//                    trailingIcon = { },
-//                )
-//                Box(
-//                    modifier = Modifier
-//                        .matchParentSize()
-//                        .pointerInput(Unit) {
-//                            awaitPointerEventScope {
-//                                while (true) {
-//                                    awaitPointerEvent()
-//                                }
-//                            }
-//                        }
-//                )
-//            }
-//        }
-//
-//        Row(modifier = Modifier.fillMaxWidth(),
-//            verticalAlignment = Alignment.CenterVertically) {
-//            Box(
-//                modifier = Modifier
-//                    .weight(1f)
-//                    .clickable(onClick = { openTimeDialogChange(true) })
-//            ) {
-//                OutlinedTextField(
-//                    value = appointmentForm.time,
-//                    onValueChange = {},
-//                    label = { Text("Time") },
-//                    readOnly = true,
-//                    modifier = Modifier.fillMaxWidth(),
-//                    isError = appointmentFormError.timeError == false && !canSave && !isLoading,
-//                    trailingIcon = { Icon(Icons.Default.AccessTime, contentDescription = null,tint = Color.Black) }
-//                )
-//                Box(
-//                    modifier = Modifier
-//                        .matchParentSize()
-//                        .pointerInput(Unit) {
-//                            awaitPointerEventScope {
-//                                while (true) {
-//                                    awaitPointerEvent()
-//                                }
-//                            }
-//                        }
-//                )
-//            }
-//        }
-//
-//        Row(modifier = Modifier.fillMaxWidth(),
-//            verticalAlignment = Alignment.CenterVertically) {
-//            Box(modifier = Modifier.weight(1f).clickable(onClick = { goToAppointmentMapFormScreen() })) {
-//                OutlinedTextField(
-//                    value = "${appointmentForm.lat} - ${appointmentForm.lon}",
-//                    onValueChange = {},
-//                    label = { Text("Location") },
-//                    readOnly = true,
-//                    modifier = Modifier.fillMaxWidth(),
-//                    isError = (appointmentFormError.latError == false && appointmentFormError.lonError == false) && !canSave && !isLoading,
-//                    trailingIcon = { Icon(Icons.Default.Map, contentDescription = null,tint = Color.Black) }
-//                )
-//                Box(
-//                    modifier = Modifier
-//                        .matchParentSize()
-//                        .pointerInput(Unit) {
-//                            awaitPointerEventScope {
-//                                while (true) {
-//                                    awaitPointerEvent()
-//                                }
-//                            }
-//                        }
-//                )
-//            }
-//        }
 
         Button(
             onClick = { appointmentFormVM.onSave() },

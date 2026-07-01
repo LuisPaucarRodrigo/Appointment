@@ -3,8 +3,10 @@ package com.hybrid.appointment.core.di
 import com.hybrid.appointment.data.local.repositoriesImpl.AppointmentRepositoriesImpl
 import com.hybrid.appointment.data.local.repositoriesImpl.GeocodeRepositoryImpl
 import com.hybrid.appointment.data.remoto.repositoriesImpl.GoogleMapsRepositoryImpl
-import com.hybrid.appointment.data.system.LocationSettingsRepositoryImpl
+import com.hybrid.appointment.data.system.location.LocationSettingsRepositoryImpl
+import com.hybrid.appointment.data.system.notification.AppointmentSchedulerRepositoriesImpl
 import com.hybrid.appointment.domain.appointment.repositories.AppointmentRepositories
+import com.hybrid.appointment.domain.appointment.repositories.AppointmentSchedulerRepositories
 import com.hybrid.appointment.domain.appointment.repositories.LocationRepositories
 import com.hybrid.appointment.domain.appointment.repositories.GoogleMapsRepositories
 import com.hybrid.appointment.domain.appointment.repositories.LocationSettingsRepository
@@ -29,4 +31,6 @@ abstract class RepositoriesModule {
     @Binds
     abstract fun bindLocationSettings(impl: LocationSettingsRepositoryImpl): LocationSettingsRepository
 
+    @Binds
+    abstract fun binScheduler(impl: AppointmentSchedulerRepositoriesImpl): AppointmentSchedulerRepositories
 }

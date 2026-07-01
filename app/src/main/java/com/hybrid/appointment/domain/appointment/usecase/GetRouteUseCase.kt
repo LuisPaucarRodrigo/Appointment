@@ -1,7 +1,7 @@
 package com.hybrid.appointment.domain.appointment.usecase
 
 import com.google.android.gms.maps.model.LatLng
-import com.hybrid.appointment.domain.Result
+import com.hybrid.appointment.core.utils.Result
 import com.hybrid.appointment.domain.appointment.repositories.GoogleMapsRepositories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
