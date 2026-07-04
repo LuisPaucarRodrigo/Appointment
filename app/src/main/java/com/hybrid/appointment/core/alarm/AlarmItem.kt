@@ -1,9 +1,11 @@
 package com.hybrid.appointment.core.alarm
 
+import com.hybrid.appointment.core.notification.Channel
 import com.hybrid.appointment.core.utils.toTriggerAlarm
 import com.hybrid.appointment.domain.appointment.entities.Appointment
 
 data class AlarmItem(
+    val type: Channel,
     val id:Int,
     val time:String,
     val title: String,
@@ -13,6 +15,7 @@ data class AlarmItem(
 
 fun Appointment.toAlarm(): AlarmItem{
     return AlarmItem(
+        type = Channel.APPOINTMENT,
         id = id.toInt(),
         time = time,
         title = "Cita con $title",
@@ -23,6 +26,7 @@ fun Appointment.toAlarm(): AlarmItem{
 
 enum class PropsIntent(val valueName:String){
     ID("id"),
+    CHANNEL("channel"),
     TITLE("title"),
-    EXTRAMESSAGE("extraMessage")
+    EXTRA_MESSAGE("extra_message")
 }

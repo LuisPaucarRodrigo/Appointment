@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.hybrid.appointment.core.notification.AppNotificationManager
 import com.hybrid.appointment.ui.navigation.Navigation
 import com.hybrid.appointment.ui.theme.AppointmentTheme
 import dagger.hilt.android.AndroidEntryPoint

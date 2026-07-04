@@ -1,35 +1,30 @@
 package com.hybrid.appointment.data.system.notification
 
-import android.app.NotificationManager
 import com.hybrid.appointment.core.notification.AppNotificationManager
 import com.hybrid.appointment.core.notification.Channel
-import com.hybrid.appointment.core.notification.NotificationChannelConfig
 import com.hybrid.appointment.core.notification.NotificationData
+import com.hybrid.appointment.core.notification.NotificationHandler
 import javax.inject.Inject
 
 class AppointmentNotification @Inject constructor(
     private val appNotificationManager: AppNotificationManager
-) {
+): NotificationHandler {
+
     companion object {
         val CHANNEL = Channel.APPOINTMENT
-        const val IMPORTANCE = NotificationManager.IMPORTANCE_HIGH
     }
 
-    operator fun invoke(appointmentId:Long, title: String, message: String) {
+    override fun canHandle(type: Channel): Boolean {
+        return type == CHANNEL
+    }
 
-        appNotificationManager.createChannel(
-            NotificationChannelConfig(
-                channel = CHANNEL,
-                importance = IMPORTANCE
-            )
-        )
-
+    override fun handle(data:NotificationData) {
         appNotificationManager.show(
             NotificationData(
                 channel = CHANNEL,
-                id = appointmentId.toInt(),
-                title = title,
-                text = message
+                id = data.id,
+                title = data.title,
+                text = data.text
             )
         )
     }

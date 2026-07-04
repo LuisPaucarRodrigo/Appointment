@@ -37,7 +37,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             isShrinkResources = true
             isDebuggable = false
             buildConfigField("String","BASE_URL","\"https://routes.googleapis.com/\"")

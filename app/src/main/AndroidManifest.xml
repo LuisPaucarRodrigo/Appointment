@@ -36,7 +36,7 @@
         </activity>
 
         <receiver
-            android:name=".data.system.notification.AppointmentReminderReceiver"
+            android:name=".core.notification.AppReminderReceiver"
             android:exported="false"/>
     </application>
 

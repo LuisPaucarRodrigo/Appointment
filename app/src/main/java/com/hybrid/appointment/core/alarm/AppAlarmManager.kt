@@ -4,7 +4,8 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import com.hybrid.appointment.data.system.notification.AppointmentReminderReceiver
+import com.hybrid.appointment.core.notification.AppReminderReceiver
+import com.hybrid.appointment.core.notification.Channel
 import javax.inject.Inject
 
 class AppAlarmManager @Inject constructor (
@@ -13,7 +14,7 @@ class AppAlarmManager @Inject constructor (
     private val alarmManager = context.getSystemService(AlarmManager::class.java)
 
     fun schedule(item: AlarmItem) {
-        val pendingIntent = createPendingIntent(item.id, item.title, item.message)
+        val pendingIntent = createPendingIntent(item.id, item.title, item.message, item.type)
         alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, item.timeTrigger, pendingIntent)
     }
 
@@ -23,17 +24,30 @@ class AppAlarmManager @Inject constructor (
         pendingIntent.cancel()
     }
 
-    private fun createPendingIntent(id: Int, title: String? = null, extraMessage: String? = null): PendingIntent {
+    private fun createPendingIntent(id:Int, title:String? = null, message:String? = null, channel:Channel? = null): PendingIntent {
+        val intent = Intent(context, AppReminderReceiver::class.java)
+        intent.apply {
 
-        val intent = Intent(context, AppointmentReminderReceiver::class.java)
-        intent.putExtra(PropsIntent.ID.valueName,id)
+            putExtra(PropsIntent.ID.valueName, id)
 
-        title?.let {
-            intent.putExtra(PropsIntent.TITLE.valueName, it)
-        }
+            channel?.let {
+                putExtra(PropsIntent.CHANNEL.valueName, it.valueId)
+            }
 
-        extraMessage?.let {
-            intent.putExtra(PropsIntent.EXTRAMESSAGE.valueName, it)
+            title?.let {
+                putExtra(
+                    PropsIntent.TITLE.valueName,
+                    it
+                )
+            }
+
+            message?.let {
+                putExtra(
+                    PropsIntent.EXTRA_MESSAGE.valueName,
+                    it
+                )
+            }
+
         }
 
         return PendingIntent.getBroadcast(

@@ -12,11 +12,11 @@ class AppNotificationManager @Inject constructor(
 ) {
     val manager = context.getSystemService(NotificationManager::class.java)
 
-    fun createChannel(data: NotificationChannelConfig){
+    fun createChannel(){
         val channel = NotificationChannel(
-            data.channel.valueId,
-            data.channel.valueName,
-            data.importance
+            Channel.APPOINTMENT.valueId,
+            Channel.APPOINTMENT.valueName,
+            NotificationManager.IMPORTANCE_HIGH
         )
         manager.createNotificationChannel(channel)
     }
