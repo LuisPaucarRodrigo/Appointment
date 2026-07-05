@@ -8,7 +8,7 @@ import javax.inject.Inject
 class AuthInterceptor @Inject constructor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
-        val key = BuildConfig.MAPS_API_KEY
+        val key = BuildConfig.ROUTES_API_KEY
         val polies= "routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline"
         val request = chain.request().newBuilder().apply {
             addHeader("X-Goog-Api-Key",key)

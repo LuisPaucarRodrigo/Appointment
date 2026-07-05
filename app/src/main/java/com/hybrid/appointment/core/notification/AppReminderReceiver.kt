@@ -24,8 +24,3 @@ class AppReminderReceiver: BroadcastReceiver() {
         notification?.handle(NotificationData(requireNotNull(channel),id,title,extraMessage))
     }
 }
-
-interface NotificationHandler {
-    fun canHandle(type: Channel): Boolean
-    fun handle(data:NotificationData)
-}
