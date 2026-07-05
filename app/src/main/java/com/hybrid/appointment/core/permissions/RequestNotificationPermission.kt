@@ -11,17 +11,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
 
 @Composable
-fun RequestLocationPermission(
+fun RequestNotificationPermission(
     onPermissionGranted: () -> Unit,
     onPermissionDenied: () -> Unit
-) {
+){
     val context = LocalContext.current
     val permissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.RequestMultiplePermissions()
+        contract = ActivityResultContracts.RequestPermission()
     ) { permissions ->
-
-        val granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true
-        if (granted) onPermissionGranted() else onPermissionDenied()
+        if (permissions) onPermissionGranted() else onPermissionDenied()
     }
 
     LaunchedEffect(Unit) {
@@ -33,7 +31,7 @@ fun RequestLocationPermission(
 
         val granted = ContextCompat.checkSelfPermission(
             context,
-            Manifest.permission.ACCESS_FINE_LOCATION
+            Manifest.permission.POST_NOTIFICATIONS
         ) == PackageManager.PERMISSION_GRANTED
 
         if (granted) {
@@ -42,10 +40,8 @@ fun RequestLocationPermission(
         }
 
         permissionLauncher.launch(
-            arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            )
+            Manifest.permission.POST_NOTIFICATIONS
         )
+
     }
 }

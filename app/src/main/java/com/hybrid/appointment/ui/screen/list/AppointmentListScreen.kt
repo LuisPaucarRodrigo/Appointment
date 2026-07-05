@@ -39,6 +39,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import com.hybrid.appointment.core.permissions.RequestNotificationPermission
 import com.hybrid.appointment.domain.appointment.entities.AppointmentState
 import com.hybrid.appointment.ui.components.layouts.EmptyList
 import com.hybrid.appointment.ui.components.layouts.GoogleMapAppointment
@@ -86,6 +87,11 @@ fun AppointmentListScreen(
     ) { padding ->
         GoogleMapList(padding = padding,appointments= state.appointments)
     }
+
+    RequestNotificationPermission(
+        onPermissionGranted = {},
+        onPermissionDenied = {}
+    )
 }
 
 @Composable
